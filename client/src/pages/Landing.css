@@ -1,0 +1,186 @@
+/* 🌌 Fullscreen Container with QR-like Background */
+.landing-container {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle, #e0f7fa, #b2ebf2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 80px;
+  color: #004d40;
+}
+
+/* 💠 ANIMATED GRID OVERLAY */
+.network-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, #004d40 0 1px, transparent 1px 20px),
+              repeating-linear-gradient(-45deg, #004d40 0 1px, transparent 1px 20px);
+  opacity: 0.07;
+  animation: moveGrid 15s linear infinite;
+  z-index: 1;
+}
+
+@keyframes moveGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 300px 300px, 300px 300px;
+  }
+}
+
+/* ✨ Logo */
+.logo-top-left {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 70px;
+  z-index: 2;
+}
+
+.sparkle-logo {
+  animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0%, 100% { filter: drop-shadow(0 0 5px #fff); }
+  50% { filter: drop-shadow(0 0 15px #fff); }
+}
+
+/* 📝 Left Panel */
+.landing-left {
+  max-width: 50%;
+  z-index: 2;
+  animation: slideInLeft 1.5s ease forwards;
+  transform: translateX(-100%);
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.main-heading {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #004d40;
+}
+
+.main-heading span {
+  color: #00695c;
+}
+
+.description {
+  font-size: 1.3rem;
+  line-height: 2;
+  margin-bottom: 30px;
+  white-space: pre-line;
+  color: #004d40;
+}
+
+.typing-effect {
+  color: #00695c;
+  font-weight: bold;
+  border-right: 2px solid #004d40;
+  padding-right: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* 🔘 Buttons */
+.button-group {
+  display: flex;
+  gap: 20px;
+}
+
+.button-group button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #ffffffcc;
+  color: #004d40;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border 0.5s ease;
+  z-index: 2;
+}
+
+.button-group button:hover {
+  transform: scale(1.05);
+  border: 2px solid #004d40;
+  box-shadow: 0 0 10px #004d40;
+}
+
+.button-group button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+  animation: shimmer 2.5s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 🌟 Right Panel Hero */
+.landing-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInRight 1.5s ease forwards;
+  transform: translateX(100%);
+  z-index: 2;
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0%);
+  }
+}
+/* .hero-circle {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  animation: sparkle-border 3s infinite linear;
+  box-shadow: 0 0 25px #80cbc4, 0 0 40px #80cbc4;
+  z-index: 2;
+} */
+
+@keyframes shine {
+  0%, 100% {
+    box-shadow: 0 0 20px #ffffff22, 0 0 40px #ffffff33;
+  }
+  50% {
+    box-shadow: 0 0 40px #ffffff66, 0 0 80px #ffffff55;
+  }
+}
+
+.hero-img {
+  width: 150%;
+  height: 150%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transform: translateX(-180px); /* Thoda left shift */
+  margin-right: auto;           /* Right side space bachaayega */
+}
+

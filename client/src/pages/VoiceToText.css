@@ -1,0 +1,90 @@
+.voice-page {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle, #e0f7fa, #b2ebf2);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.network-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, #004d40 0 1px, transparent 1px 20px),
+              repeating-linear-gradient(-45deg, #004d40 0 1px, transparent 1px 20px);
+  opacity: 0.07;
+  animation: moveGrid 15s linear infinite;
+  z-index: 1;
+}
+
+@keyframes moveGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 300px 300px, 300px 300px;
+  }
+}
+
+.voice-container {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  width: 100%;
+  background: #ffffffdd;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  color: #004d40;
+}
+
+.voice-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #00695c;
+}
+
+.voice-container input[type="file"] {
+  margin: 20px 0;
+}
+
+.voice-container button {
+  padding: 10px 22px;
+  font-size: 16px;
+  background: #004d40;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.voice-container button:hover {
+  background: #00796b;
+}
+
+.result {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.result h4 {
+  margin-bottom: 10px;
+  color: #004d40;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

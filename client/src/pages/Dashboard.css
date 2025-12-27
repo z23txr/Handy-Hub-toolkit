@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-container {
+  position: relative;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+  animation: floatBg 10s infinite alternate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+@keyframes floatBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 🟢 Add animated grid overlay like .qr-page */
+.dashboard-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, #004d40 0 1px, transparent 1px 20px),
+              repeating-linear-gradient(-45deg, #004d40 0 1px, transparent 1px 20px);
+  opacity: 0.07;
+  animation: moveGrid 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 300px 300px, 300px 300px;
+  }
+}
+
+.dashboard-title {
+  margin: 60px 0 30px;
+  font-size: 2.5rem;
+  color: #004d40;
+  text-shadow: 1px 1px 2px #fff;
+  text-align: center;
+  z-index: 2;
+}
+
+.logout-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 10px 25px;
+  background-color: #004d40;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #004d40;
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 2;
+}
+
+.logout-button:hover {
+  background-color: #00796b;
+  transform: scale(1.05);
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  z-index: 2;
+}
+
+.tool-box {
+  width: 220px;
+  height: 180px;
+  background: #ffffffdd;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  z-index: 2;
+}
+
+.tool-box img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.tool-box h3 {
+  font-size: 1.2rem;
+  color: #00695c;
+  z-index: 1;
+}
+
+.tool-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.sparkle-overlay {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.tool-box:hover .sparkle-overlay {
+  opacity: 0.3;
+  animation: sparkle 2s linear infinite;
+}
+
+@keyframes sparkle {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(20px, 20px);
+  }
+}

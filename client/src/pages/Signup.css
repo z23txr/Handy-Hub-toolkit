@@ -1,0 +1,131 @@
+.auth-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, #e0f7fa, #b2ebf2);
+  overflow: hidden;
+}
+
+/* 🔲 ANIMATED GRID BACKGROUND */
+.auth-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, #004d40 0 1px, transparent 1px 20px),
+              repeating-linear-gradient(-45deg, #004d40 0 1px, transparent 1px 20px);
+  opacity: 0.07;
+  animation: moveGrid 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveGrid {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 300px 300px, 300px 300px;
+  }
+}
+
+.auth-card {
+  background: #ffffffdd;
+  backdrop-filter: blur(6px);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.auth-title {
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #004d40;
+  text-shadow: 1px 1px 2px #fff;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid #80cbc4;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.auth-input:focus {
+  border-color: #004d40;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #004d40;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #00796b;
+}
+
+.auth-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+  animation: sparkle 2s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes sparkle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.auth-text {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #004d40;
+}
+
+.auth-link {
+  color: #00796b;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-msg {
+  margin-top: 10px;
+  color: red;
+  font-weight: bold;
+}
